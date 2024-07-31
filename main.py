@@ -17,10 +17,10 @@ while len(guessed_states) < 50:
 
     if answer_state == "Exit":
 
-        set1 = set(all_states)
-        set2 = set(guessed_states)
-        left_states = list(set1.symmetric_difference(set2))
-
+        # set1 = set(all_states)
+        # set2 = set(guessed_states)
+        # left_states = list(set1.symmetric_difference(set2))
+        left_states = [state for state in all_states if state not in guessed_states]
         left_data = pandas.DataFrame(left_states)
         left_data.to_csv("left_states.csv")
         print(f"You missing {len(left_states)}.")
